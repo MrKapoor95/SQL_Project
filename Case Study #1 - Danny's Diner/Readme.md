@@ -18,10 +18,12 @@ Danny has provided you with a sample of his overall customer data due to privacy
 * sales
 * menu
 * members
+[DBFiddle Link For Schema](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
 
 You can inspect the entity relationship diagram and example data below.
 
 <img src="https://github.com/MrKapoor95/SQL_Project/blob/main/Case%20Study%20%231%20-%20Danny's%20Diner/CaseStudy%201%20Schema.png" width=50% height=50%>
+
 
 ***
 
