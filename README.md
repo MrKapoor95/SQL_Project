@@ -6,7 +6,7 @@ Details about the challenge can be viewed [here](https://8weeksqlchallenge.com/g
 
 ## This Project Include 8 different Case Studies as listed below
 
-#### Case Study #1 - Danny’s Diner
+#### [Case Study #1 - Danny’s Diner](https://github.com/MrKapoor95/SQL_Project/blob/main/Case%20Study%20%231%20-%20Danny's%20Diner)
 #### Case Study #2 - Pizza Runner
 #### Case Study #3 - Foodie-Fi
 #### Case Study #4 - Data Bank
