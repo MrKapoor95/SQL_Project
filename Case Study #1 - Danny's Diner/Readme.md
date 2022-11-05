@@ -287,24 +287,24 @@ Output
 9 If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 
 ```sql
-SELECT customer_id, sum(points) as Total_Points
+SELECT 
+	customer_id, sum(points) as Total_Points
 FROM
-(SELECT customer_id, product_name, amount, 
-	   CASE WHEN product_name="sushi" THEN amount*20
-		 ELSE amount*10
-       end as Points
-FROM
-(SELECT 
-	s.customer_id,
-	m.product_name,
-	SUM(m.price) AS amount
-FROM 
-	dannys_diner.menu AS m
-JOIN 
-	dannys_diner.sales AS s ON s.product_id = m.product_id
-GROUP BY customer_id, m.product_name) as amount_spent) as points
-GROUP BY customer_id
-;
+	(SELECT customer_id, product_name, amount, 
+	  	CASE WHEN product_name="sushi" THEN amount*20 ELSE amount*10 END as Points
+	 FROM
+	       (SELECT 
+			s.customer_id,
+			m.product_name,
+			SUM(m.price) AS amount
+		FROM 
+			dannys_diner.menu AS m
+		JOIN 
+			dannys_diner.sales AS s ON s.product_id = m.product_id
+		GROUP BY customer_id, m.product_name) 
+		as amount_spent) 
+	as points
+GROUP BY customer_id ;
 ```
 Output
 | customer_id    | Total_points   |
@@ -319,9 +319,9 @@ Output
 SELECT 
 	s.customer_id,
 	SUM(CASE 
-			WHEN (s.order_date >= mb.join_date) AND (s.order_date <= "2021-01-31") THEN  price*20
-            WHEN (s.order_date < mb.join_date) AND (m.product_name="sushi") THEN price*20 ELSE price*10
-		END) as Points
+		WHEN (s.order_date >= mb.join_date) AND (s.order_date <= "2021-01-31") THEN  price*20
+            	WHEN (s.order_date < mb.join_date) AND (m.product_name="sushi") THEN price*20 ELSE price*10
+	    END) as Points
 FROM 
 	dannys_diner.menu AS m
 JOIN 
