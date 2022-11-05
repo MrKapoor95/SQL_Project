@@ -20,4 +20,5 @@ Danny has provided you with a sample of his overall customer data due to privacy
 * members
 
 You can inspect the entity relationship diagram and example data below.
-![alt text](https://github.com/MrKapoor95/SQL_Project/blob/main/Case%20Study%20%231%20-%20Danny's%20Diner/CaseStudy%201%20Schema.png)
+
+![alt text](https://github.com/MrKapoor95/SQL_Project/blob/main/Case%20Study%20%231%20-%20Danny's%20Diner/CaseStudy%201%20Schema.png =250x250)
