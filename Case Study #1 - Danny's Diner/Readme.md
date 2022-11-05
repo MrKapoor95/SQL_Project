@@ -152,26 +152,113 @@ Output
 4 What is the most purchased item on the menu and how many times was it purchased by all customers?
 
 ```sql
-
+SELECT 
+	m.product_name, count(s.product_id) as order_count
+FROM 
+	dannys_diner.sales as s
+INNER JOIN 
+	dannys_diner.menu as m ON s.product_id=m.product_id
+GROUP BY m.product_name
+ORDER BY order_count desc
+limit 1;
 ```
+Using Rank()
+```sql
+SELECT product_name, order_count
+FROM (
+	SELECT
+	m.product_name, count(s.product_id) as order_count,
+    RANK() OVER(ORDER BY s.product_id DESC) as order_rank
+	FROM 
+	dannys_diner.sales as s
+	INNER JOIN 
+	dannys_diner.menu as m ON s.product_id=m.product_id
+	GROUP BY m.product_name) as item_count
+WHERE order_rank = 1;
+```
+Output
+| product_name    | order_count   |
+| :---:   | :---: |
+| ramen | 8  | 
+
 
 5 Which item was the most popular for each customer?
 
 ```sql
-
+SELECT 
+	customer_id, product_name
+FROM
+	(SELECT 
+		s.customer_id, s.product_id, m.product_name, count(s.product_id) as order_count,
+   		rank() OVER(PARTITION BY s.customer_id ORDER BY count(s.product_id) DESC) as ranking
+	FROM 
+		dannys_diner.sales as s
+	INNER JOIN 
+		dannys_diner.menu as m ON s.product_id=m.product_id
+	GROUP BY s.customer_id, s.product_id) as order_ranking
+WHERE ranking = 1
+ORDER BY customer_id
+;
 ```
+Output
+| customer_id    | product_name   |
+| :---:   | :---: |
+| A | ramen  |  
+| B | curry  |
+| B | sushi  |
+| B | ramen  |
+| C | ramen  |
 
 6 Which item was purchased first by the customer after they became a member?
 
 ```sql
-
+SELECT 
+	customer_id, product_name
+FROM
+	(SELECT 
+		s.customer_id, s.product_id, m.product_name, s.order_date ,
+		rank() OVER(PARTITION BY s.customer_id ORDER BY s.order_date) as ranking
+	FROM 
+		dannys_diner.menu as m 
+	JOIN 
+		dannys_diner.sales as s ON s.product_id=m.product_id
+	JOIN 
+		dannys_diner.members as mb ON s.customer_id=mb.customer_id
+	WHERE 
+		s.order_date >=mb.join_date) as order_ranking
+where ranking=1 ;
 ```
+Output
+| customer_id    | product_name   |
+| :---:   | :---: |
+| A | curry  |  
+| B | sushi  |
 
 7 Which item was purchased just before the customer became a member?
 
 ```sql
-
+SELECT 
+	customer_id, product_name
+FROM
+	(SELECT 
+		s.customer_id, s.product_id, m.product_name, s.order_date ,
+		rank() OVER(PARTITION BY s.customer_id ORDER BY s.order_date desc) as ranking
+	FROM 
+		dannys_diner.menu as m 
+	JOIN 
+		dannys_diner.sales as s ON s.product_id=m.product_id
+	JOIN 
+		dannys_diner.members as mb ON s.customer_id=mb.customer_id
+	WHERE 
+		s.order_date < mb.join_date) as order_ranking
+where ranking=1 ;
 ```
+Output
+| customer_id    | product_name   |
+| :---:   | :---: |
+| A | sushi  |  
+| A | curry  |  
+| B | sushi  |
 
 8 What is the total items and amount spent for each member before they became a member?
 
