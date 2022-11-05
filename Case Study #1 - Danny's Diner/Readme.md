@@ -131,8 +131,23 @@ Output
 3 What was the first item from the menu purchased by each customer?
 
 ```sql
-
+SELECT
+	s.customer_id,
+    m.product_name
+FROM 
+	dannys_diner.sales as s
+JOIN 
+	dannys_diner.menu as m
+    on s.product_id = m.product_id
+GROUP BY 
+	s.customer_id;
 ```
+Output
+| customer_id    | product_id   |
+| :---:   | :---: |
+| A | sushi  |  
+| B | curry  |
+| C | ramen  |
 
 4 What is the most purchased item on the menu and how many times was it purchased by all customers?
 
