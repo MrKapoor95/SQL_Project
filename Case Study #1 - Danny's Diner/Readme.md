@@ -263,17 +263,75 @@ Output
 8 What is the total items and amount spent for each member before they became a member?
 
 ```sql
-
+SELECT 
+	s.customer_id,
+	COUNT(s.product_id) AS item_count,
+	SUM(m.price) AS amount
+FROM 
+	dannys_diner.menu AS m
+JOIN 
+	dannys_diner.sales AS s ON s.product_id = m.product_id
+JOIN 
+	dannys_diner.members AS mb ON s.customer_id = mb.customer_id
+WHERE
+	s.order_date < mb.join_date
+GROUP BY 
+	s.customer_id ;
 ```
+Output
+| customer_id    | item_count   | Amount   |
+| :---:   | :---: | :---: |
+| B | 3  | 40  |  
+| A | 2  | 25  |  
 
 9 If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 
 ```sql
-
+SELECT customer_id, sum(points) as Total_Points
+FROM
+(SELECT customer_id, product_name, amount, 
+	   CASE WHEN product_name="sushi" THEN amount*20
+		 ELSE amount*10
+       end as Points
+FROM
+(SELECT 
+	s.customer_id,
+	m.product_name,
+	SUM(m.price) AS amount
+FROM 
+	dannys_diner.menu AS m
+JOIN 
+	dannys_diner.sales AS s ON s.product_id = m.product_id
+GROUP BY customer_id, m.product_name) as amount_spent) as points
+GROUP BY customer_id
+;
 ```
+Output
+| customer_id    | Total_points   |
+| :---:   | :---: |
+| A | 860  |  
+| A | 940  |  
+| B | 360  |
 
 10 In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
 ```sql
-
+SELECT 
+	s.customer_id,
+	SUM(CASE 
+			WHEN (s.order_date >= mb.join_date) AND (s.order_date <= "2021-01-31") THEN  price*20
+            WHEN (s.order_date < mb.join_date) AND (m.product_name="sushi") THEN price*20 ELSE price*10
+		END) as Points
+FROM 
+	dannys_diner.menu AS m
+JOIN 
+	dannys_diner.sales AS s ON s.product_id = m.product_id
+JOIN 
+	dannys_diner.members AS mb ON s.customer_id = mb.customer_id
+GROUP BY s.customer_id ;
 ```
+Output
+| customer_id    | Total_points   |
+| :---:   | :---: |
+| A | 1060  |  
+| B | 1370  | 
