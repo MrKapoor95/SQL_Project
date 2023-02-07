@@ -49,6 +49,7 @@ The menu table maps the product_id to the actual product_name and price of each 
 | 1	| sushi | 10 |
 | 2	| curry |	15 |
 | 3	| ramen |	12 |
+
 <details>
 	
 3. MEMBERS
@@ -77,7 +78,6 @@ The final members table captures the join_date when a customer_id joined the bet
 * Ramen was the most favorite dish/ ordered item by all the customers with ordered 8 times.
 * Customer with Id 'A' ordered the most while Customer with ID 'B' spent the least amount
 * Customer with Id 'B' visited more in the restaurant i.e., 6 times.
-
 
 
 
