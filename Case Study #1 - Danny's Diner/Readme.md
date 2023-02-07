@@ -20,7 +20,8 @@ Danny has shared with you 3 key datasets for this case study:
 <details>
   <summary>View Table</summary>
   The sales table captures all customer_id level purchases with an corresponding order_date and product_id information for when and what menu items were ordered.
-|customer_id	| order_date |	product_id |
+	
+| customer_id	| order_date |	product_id |
 | :---: 	| :---: | :---:  | :---: |
 | A |	2021-01-01 |	1 |
 | A |	2021-01-01 |	2 |
