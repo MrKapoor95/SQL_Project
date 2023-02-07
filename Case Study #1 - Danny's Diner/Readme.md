@@ -41,29 +41,47 @@ Danny has shared with you 3 key datasets for this case study:
 </details>
 
 2. MENU
-View Table
+<details>
+  <summary>View Table</summary>
+The menu table maps the product_id to the actual product_name and price of each menu item.
+| product_id |	product_name |	price |
+| --- | --- | --- |
+| 1	| sushi | 10 |
+| 2	| curry |	15 |
+| 3	| ramen |	12 |
+<details>
+	
 3. MEMBERS
-View Table
+<details>
+  <summary>View Table</summary>
+The final members table captures the join_date when a customer_id joined the beta version of the Danny’s Diner loyalty program.
+| customer_id |	join_date |
+| --- | --- | 
+| A |	2021-01-07 |
+| B |	2021-01-09	|
+<details>
+	
 💬 CASE STUDY QUESTIONS
-What is the total amount each customer spent at the restaurant?
-How many days has each customer visited the restaurant?
-What was the first item from the menu purchased by each customer?
-What is the most purchased item on the menu and how many times was it purchased by all customers?
-Which item was the most popular for each customer?
-Which item was purchased first by the customer after they became a member?
-Which item was purchased just before the customer became a member?
-What is the total items and amount spent for each member before they became a member?
-If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
-In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
+* What is the total amount each customer spent at the restaurant?
+* How many days has each customer visited the restaurant?
+* What was the first item from the menu purchased by each customer?
+* What is the most purchased item on the menu and how many times was it purchased by all customers?
+* Which item was the most popular for each customer?
+* Which item was purchased first by the customer after they became a member?
+* Which item was purchased just before the customer became a member?
+* What is the total items and amount spent for each member before they became a member?
+* If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+* In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
+
 🎯 INSIGHTS GENERATED
-Ramen was the most favorite dish/ ordered item by all the customers with ordered 8 times.
-Customer with Id 'A' ordered the most while Customer with ID 'B' spent the least amount
-Customer with Id 'B' visited more in the restaurant i.e., 6 times.
+* Ramen was the most favorite dish/ ordered item by all the customers with ordered 8 times.
+* Customer with Id 'A' ordered the most while Customer with ID 'B' spent the least amount
+* Customer with Id 'B' visited more in the restaurant i.e., 6 times.
 
 
 
 
-
+## Detailed Analysis with MySQL Query
 
 ### Danny has shared with you 3 key datasets for this case study:
 
