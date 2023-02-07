@@ -43,13 +43,14 @@ Danny has shared with you 3 key datasets for this case study:
 <details>
   <summary>View Table</summary>
 	The menu table maps the product_id to the actual product_name and price of each menu item.
+	| product_id	| product_name |	price |
+	| --- 	| ---  | --- |
+	| 1 |	price |	10 |
+	| 2 |	curry |	15 |
+	| 3 |	ramen |	12 |
+	
+</details>
 
-	| product_id |	product_name |	price |
-	| --- | --- | --- |
-	| 1	| sushi | 10 |
-	| 2	| curry |	15 |
-	| 3	| ramen |	12 |
-<details>
 
 3. MEMBERS
 <details>
