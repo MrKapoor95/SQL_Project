@@ -22,7 +22,7 @@ Danny has shared with you 3 key datasets for this case study:
   The sales table captures all customer_id level purchases with an corresponding order_date and product_id information for when and what menu items were ordered.
 	
 | customer_id	| order_date |	product_id |
-| :---: 	| :---: | :---:  | :---: |
+| --- 	| ---  | --- |
 | A |	2021-01-01 |	1 |
 | A |	2021-01-01 |	2 |
 | A |	2021-01-07 |	2 |
@@ -36,8 +36,8 @@ Danny has shared with you 3 key datasets for this case study:
 | B |	2021-01-16 |	3 |
 | B |	2021-02-01 |	3 |
 | C |	2021-01-01 |	3 |
-| C	| 2021-01-01 |	3 |
-| C	| 2021-01-07 |	3 |
+| C |   2021-01-01 |	3 |
+| C |   2021-01-07 |	3 |
 </details>
 
 2. MENU
