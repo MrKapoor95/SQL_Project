@@ -13,7 +13,7 @@ Danny’s Diner is in need of your assistance to help the restaurant stay afloat
 * Danny has provided you with a sample of his overall customer data due to privacy issues - but he hopes that these examples are enough for you to write fully functioning SQL queries to help him answer his questions!
 ***
 
-📁 DATASETS
+# 📁 DATASETS
 Danny has shared with you 3 key datasets for this case study:
 
 1. SALES
@@ -64,7 +64,7 @@ Danny has shared with you 3 key datasets for this case study:
 </details>
 
 
-### 💬 CASE STUDY QUESTIONS
+# 💬 CASE STUDY QUESTIONS
 * What is the total amount each customer spent at the restaurant?
 * How many days has each customer visited the restaurant?
 * What was the first item from the menu purchased by each customer?
@@ -76,14 +76,14 @@ Danny has shared with you 3 key datasets for this case study:
 * If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 * In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
-🎯 INSIGHTS GENERATED
+# 🎯 INSIGHTS GENERATED
 * Ramen was the most favorite dish/ ordered item by all the customers with ordered 8 times.
 * Customer with Id 'A' ordered the most while Customer with ID 'B' spent the least amount
 * Customer with Id 'B' visited more in the restaurant i.e., 6 times.
 
 
 
-## Detailed Analysis with MySQL Query
+# Detailed Analysis with MySQL Query
 
 ### Danny has shared with you 3 key datasets for this case study:
 
