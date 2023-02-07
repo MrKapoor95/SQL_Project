@@ -62,14 +62,6 @@ Danny has shared with you 3 key datasets for this case study:
 	| B |	2021-01-09 |
 	
 </details>
-<details>
-  <summary>View Table</summary>
-	The final members table captures the join_date when a customer_id joined the beta version of the Danny’s Diner loyalty program.
-	| customer_id |	join_date |
-	|    ---      |   ---     | 
-	|     A       |	2021-01-07 |
-	|     B       |	2021-01-09 |
-<details>
 
 
 ### 💬 CASE STUDY QUESTIONS
